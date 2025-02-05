@@ -1,0 +1,182 @@
+/* 基础样式 */
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Microsoft YaHei', cursive;
+    background: linear-gradient(45deg, #ffb6c1, #ffcccb);
+    min-height: 100vh;
+}
+
+/* 特效切换按钮 */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-switch button {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.theme-switch button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+/* 樱花飘落动画 */
+@keyframes fall {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.sakura-background::before {
+    content: "🌸";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    animation: fall 10s linear infinite;
+}
+
+.sakura-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* 星空流星动画 */
+@keyframes shootingStar {
+    0% { transform: translateX(-100vw) translateY(-100vh); }
+    100% { transform: translateX(100vw) translateY(100vh); }
+}
+
+.star-background::before {
+    content: "🌠";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    animation: shootingStar 5s linear infinite;
+}
+
+.star-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    background: linear-gradient(45deg, #0a0a23, #1a1a40);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 信封样式 */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.envelope {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.title {
+    color: #ff6f61;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+/* 按钮设计 */
+.love-btn {
+    background: #ff6f61;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+}
+
+.love-btn:hover {
+    transform: scale(1.05);
+    background: #ff4a3d;
+}
+
+/* 情书弹出效果 */
+.hidden-letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    max-width: 500px;
+    width: 90%;
+}
+
+.hidden-letter.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.letter-content h2 {
+    color: #ff6f61;
+    margin-bottom: 1rem;
+}
+
+.letter-content p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s infinite;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    .envelope {
+        padding: 1.5rem;
+    }
+}
