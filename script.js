@@ -57,31 +57,6 @@ document.getElementById('showLetter').addEventListener('click', function() {
     });
 });
 
-// 点击页面弹出文字
-const clickTextContainer = document.getElementById('clickTextContainer');
-const messages = [
-    "我爱你", "你是我的一切", "愿与你共度余生", "你让我心动", 
-    "每一天都想你", "你是我唯一的爱", "愿我们的爱永恒", "你是我最美的风景"
-];
-
-document.addEventListener('click', function(e) {
-    const clickX = e.clientX;
-    const clickY = e.clientY;
-
-    const text = document.createElement('div');
-    text.className = 'click-text';
-    text.textContent = messages[Math.floor(Math.random() * messages.length)];
-    text.style.left = `${clickX}px`;
-    text.style.top = `${clickY}px`;
-
-    clickTextContainer.appendChild(text);
-
-    // 文字动画结束后移除
-    setTimeout(() => {
-        text.remove();
-    }, 2000);
-});
-
 // 初始化
 window.addEventListener('DOMContentLoaded', () => {
     createSakura();
